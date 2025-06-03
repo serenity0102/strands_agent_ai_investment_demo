@@ -52,11 +52,11 @@ This will start a local web server and open the application in your default web 
 
 Here are some example queries you can ask the agent:
 
-- "Get market data for AAPL"
-- "What's the latest news about Tesla?"
-- "Generate an analyst report for MSFT"
+- "Get market data for AMZN"
+- "What's the latest news about AMZN?"
+- "Generate an analyst report for AMZN"
 - "Estimate how my portfolio would perform in a recession scenario"
-- "Compare the performance of AAPL, MSFT, and GOOGL over the last month"
+- "Compare the performance of AAPL, AMZN, and GOOGL over the last month"
 - "What's your recommendation for tech stocks in the current market?"
 
 ## Portfolio Analysis
@@ -64,7 +64,7 @@ Here are some example queries you can ask the agent:
 To analyze a portfolio, specify the tickers and their weights:
 
 ```
-Analyze this portfolio: AAPL (40%), MSFT (30%), GOOGL (20%), AMZN (10%) in a bull market scenario
+Analyze this portfolio: AMZN (40%), MSFT (30%), GOOGL (30%) in a bull market scenario
 ```
 
 ## Troubleshooting

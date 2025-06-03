@@ -1,4 +1,4 @@
-# AI Investment Robot Advisor
+# AI Investment Robot Advisor by AWS Strands Agent SDK
 
 An AI-powered investment advisor built using the Strands Agent SDK that provides financial analysis and portfolio recommendations.
 

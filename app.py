@@ -227,8 +227,36 @@ with tab2:
                     st.subheader("Analysis Results")
                     
                     try:
-                        # Try to parse the response as JSON
-                        if isinstance(response, str) and (response.startswith('{') or response.startswith('[')):
+                        # Handle different response types
+                        if hasattr(response, 'message') and hasattr(response, 'stop_reason'):
+                            # This is a responseAgentResultAgentResult object
+                            if response.message and 'content' in response.message:
+                                # Extract the text content from the message
+                                if isinstance(response.message['content'], list):
+                                    # If content is a list, get the text from the first item
+                                    for item in response.message['content']:
+                                        if 'text' in item:
+                                            response_text = item['text']
+                                            break
+                                    else:
+                                        response_text = str(response.message['content'])
+                                else:
+                                    response_text = str(response.message['content'])
+                                
+                                # Display the formatted text response
+                                st.markdown(response_text)
+                                
+                                # Also display the portfolio composition
+                                st.write("**Portfolio Composition**")
+                                portfolio_df = pd.DataFrame({
+                                    'Ticker': list(portfolio.keys()),
+                                    'Weight': [f"{w*100:.1f}%" for w in portfolio.values()]
+                                })
+                                st.dataframe(portfolio_df)
+                            else:
+                                st.write(str(response))
+                        elif isinstance(response, str) and (response.startswith('{') or response.startswith('[')):
+                            # Try to parse as JSON
                             result = json.loads(response)
                             
                             # Create a more user-friendly display
@@ -267,9 +295,10 @@ with tab2:
                         else:
                             # If not JSON, just display the text response
                             st.write(response)
-                    except:
-                        # If parsing fails, just display the text response
+                    except Exception as e:
+                        # If parsing fails, just display the text response and the error
                         st.write(response)
+                        st.error(f"Error processing response: {str(e)}")
             except Exception as e:
                 st.error(f"Error analyzing portfolio: {str(e)}")
         else:

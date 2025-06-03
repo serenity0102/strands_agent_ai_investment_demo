@@ -100,10 +100,10 @@ with tab1:
     # Example queries
     with st.expander("Example Queries (Click to use)"):
         example_queries = [
-            "Get market data for AAPL",
+            "Get market data for AMZN",
             "What's the latest news about Tesla?",
-            "Generate an analyst report for MSFT",
-            "Compare the performance of AAPL, MSFT, and GOOGL over the last month",
+            "Generate an analyst report for AMZN",
+            "Compare the performance of Nvidia, Amazon, and Tesla over the last month",
             "What's your recommendation for tech stocks in the current market?"
         ]
         
@@ -164,9 +164,9 @@ with tab2:
     
     # Portfolio input
     portfolio_input = st.text_area(
-        "Enter your portfolio (format: TICKER (WEIGHT%), e.g., AAPL (40%), MSFT (30%), GOOGL (20%), AMZN (10%))",
+        "Enter your portfolio (format: TICKER (WEIGHT%), e.g., AMZN (40%), MSFT (30%), GOOGL (30%))",
         height=100,
-        placeholder="Example: AAPL (40%), MSFT (30%), GOOGL (20%), AMZN (10%)"
+        placeholder="Example: AMZN (40%), MSFT (30%), GOOGL (30%)"
     )
     
     # Scenario selection

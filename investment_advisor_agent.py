@@ -4,8 +4,7 @@ Investment Robot Advisor using Strands Agent SDK
 This agent provides investment advice by:
 1. Querying market data from Yahoo Finance
 2. Querying market news from Yahoo Finance
-3. Writing CFA analyst reports
-4. Estimating portfolio performance under different market scenarios
+3. Estimating portfolio performance under different market scenarios
 """
 
 import os
